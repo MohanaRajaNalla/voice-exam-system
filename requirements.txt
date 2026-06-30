@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+Flask
+Flask-Cors
+librosa
+soundfile
+scikit-learn
+speechbrain>=1.0.0
+torch==2.0.1+cpu
+torchaudio==2.0.2+cpu
+numpy==1.26.4
+huggingface_hub<0.22.0
+gunicorn

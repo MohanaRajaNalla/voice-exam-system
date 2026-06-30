@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Biometric Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="glass-panel main-panel">
+        <div class="panel-header">
+            <h1>VoiceAuth Secure Portal</h1>
+            <p>Biometric access to the Exam Portal</p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="login">Login</button>
+            <button class="tab-btn" data-tab="register">Register</button>
+        </div>
+
+        <!-- Login Section -->
+        <div id="login-section" class="tab-content active">
+            <div class="input-group">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" placeholder="Enter your username">
+            </div>
+            
+            <div class="voice-recorder">
+                <div class="mic-btn-container">
+                    <button class="mic-btn pulse-animation" id="login-mic-btn">
+                        <!-- SVG Microphone -->
+                        <svg viewBox="0 0 24 24" fill="none" class="mic-icon" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </button>
+                    <div class="recording-status" id="login-status">Press to Record Voice</div>
+                </div>
+            </div>
+            
+            <button class="action-btn" id="login-submit-btn" disabled>Authenticate via Voice</button>
+            <div class="message-box" id="login-message"></div>
+        </div>
+
+        <!-- Register Section -->
+        <div id="register-section" class="tab-content">
+            <div class="input-group">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" placeholder="Choose a username">
+            </div>
+            
+            <div class="voice-recorder">
+                <p class="instruction">Record 3 voice samples for accurate enrollment.</p>
+                <div class="sample-indicators">
+                    <span class="indicator" id="ind-1">1</span>
+                    <span class="indicator" id="ind-2">2</span>
+                    <span class="indicator" id="ind-3">3</span>
+                </div>
+                <div class="mic-btn-container">
+                    <button class="mic-btn pulse-animation" id="register-mic-btn">
+                        <svg viewBox="0 0 24 24" fill="none" class="mic-icon" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </button>
+                    <div class="recording-status" id="register-status">Record Sample 1</div>
+                </div>
+            </div>
+            
+            <button class="action-btn" id="register-submit-btn" disabled>Enroll Voice Biometrics</button>
+            <div class="message-box" id="register-message"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

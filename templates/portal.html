@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Exam Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2" style="background: var(--success); opacity: 0.15; bottom: 10%; right: 10%;"></div>
+    </div>
+
+    <nav class="top-nav">
+        <div class="nav-brand">VoiceAuth Secure Portal</div>
+        <div class="user-info">
+            Authenticated as: <span class="highlight">{{ username }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <div class="glass-panel main-panel">
+        <div class="auth-success-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Voice Identity Verified
+        </div>
+
+        <div class="panel-header" style="margin-top: 1rem;">
+            <h1>Secure AI Systems Test</h1>
+            <p>Welcome to your academic secure environment.</p>
+        </div>
+        
+        <div class="portal-content">
+            <div class="exam-card">
+                <h3>Final Examination</h3>
+                <p><strong>Duration:</strong> 30 Minutes</p>
+                <p><strong>Security:</strong> Biometric Lock Engaged</p>
+                <a href="{{ url_for('start_test') }}" class="action-btn" style="text-decoration: none; display: inline-block; text-align: center; margin-top: 1.5rem;">Start Test</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
